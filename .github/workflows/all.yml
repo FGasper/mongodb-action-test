@@ -22,10 +22,10 @@ jobs:
       #- run: apt update
 
       - run: |
-          apt install -y iproute2
+          sudo apt install -y iproute2
           ss -a
 
       - run: |
-          apt install -y npm
-          npm install -g mongosh
+          sudo apt install -y npm
+          sudo npm install -g mongosh
           mongosh --port 33333 --eval "db.serverStatus()"
