@@ -31,4 +31,4 @@ jobs:
       - run: |
           apt install -y npm
           npm install -g mongosh
-          mongosh --port 33333 --eval "db.serverStatus()"
+          mongosh --host mongo --port 33333 --eval "db.serverStatus()"
