@@ -12,14 +12,15 @@ jobs:
 
     container:
       image: ubuntu:24.04
-      ports: [33333]
+      #ports: [33333]
+
+    services:
+      mongo:
+        image: mongo:8.0
+        ports:
+          - 27017:33333
 
     steps:
-      - uses: supercharge/mongodb-github-action@1.11.0
-        with:
-          mongodb-version: 6.0
-          mongodb-port: 33333
-
       - run: apt update
 
       - run: |
@@ -27,6 +28,6 @@ jobs:
           ss -a
 
       - run: |
-          apt install -y npm
+          #apt install -y npm
           npm install -g mongosh
           mongosh --port 33333 --eval "db.serverStatus()"
