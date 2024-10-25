@@ -19,6 +19,8 @@ jobs:
           mongodb-version: 6.0
           mongodb-port: 33333
 
+      - run: apt update
+
       - run: |
           apt install -y iproute2
           ss -a
