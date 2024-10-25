@@ -10,8 +10,8 @@ jobs:
   testing:
     runs-on: ubuntu-latest
 
-    container:
-      image: ubuntu:24.04
+#    container:
+#      image: ubuntu:24.04
 
     steps:
       - uses: supercharge/mongodb-github-action@1.11.0
