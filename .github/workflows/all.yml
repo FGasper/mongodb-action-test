@@ -12,7 +12,7 @@ jobs:
 
     container:
       image: ubuntu:24.04
-      options: --network host
+      #options: --network host
       #ports: [33333]
 
     services:
