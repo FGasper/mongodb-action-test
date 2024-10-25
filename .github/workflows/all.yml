@@ -19,7 +19,7 @@ jobs:
       mongo:
         image: mongo:8.0
         ports:
-          - 27017:33333
+          - 27017:27017
 
     steps:
       - run: apt update
@@ -31,4 +31,4 @@ jobs:
       - run: |
           apt install -y npm
           npm install -g mongosh
-          mongosh --host mongo --port 33333 --eval "db.serverStatus()"
+          mongosh --host mongo --port 27017 --eval "db.serverStatus()"
