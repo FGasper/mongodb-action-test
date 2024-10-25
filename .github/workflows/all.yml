@@ -1,0 +1,29 @@
+on:
+  push:
+    branches:
+      - '*'
+    tags-ignore:
+      - '*'
+  pull_request:
+
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+
+    container:
+      image: ubuntuL:24.04
+
+    steps:
+      - uses: supercharge/mongodb-github-action@1.11.0
+        with:
+          mongodb-version: 6.0
+          mongodb-port: 33333
+
+      - run: |
+          apt install -y iproute2
+          ss -a
+
+      - run: |
+          apt install -y npm
+          npm install -g mongosh
+          mongosh --port 33333 --eval "db.serverStatus()"
